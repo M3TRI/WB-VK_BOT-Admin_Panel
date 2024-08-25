@@ -1,0 +1,163 @@
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #121212;
+    color: #eee;
+    font-size: 14px;
+}
+
+h2 {
+    margin: 4px 0 15px 0;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #2e2e2e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header button,
+#logoutButton {
+    margin-right: 20px;
+}
+
+.title {
+    font-family: Roboto, sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    margin: 0 20px 0 20px;
+    
+}
+
+.main-block {
+    padding: 20px 0 20px 20px;
+    overflow-x: auto;
+}
+
+.headbutton {
+    margin: 90px 0 0 20px;
+}
+
+.right-block {
+    width: 25%;
+    padding: 20px;
+    border-left: 1px solid #444;
+}
+
+table {
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #444;
+    width: auto;
+}
+
+button,
+#logoutButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    border-radius: 0.15rem;
+    text-shadow: 0 0 5px #0000005c;
+}
+
+button:hover,
+#logoutButton:hover {
+    background-color:
+        #3e8e41;
+}
+
+/* Стили для модальных окон (попапов) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    border-radius: 0.35rem;
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 20px;
+    border: 1px solid #7b7b7b42;
+    max-width: 400px;
+    border-radius: 0.35rem;
+    box-shadow: 0 0 15px #000000b8;
+    margin: 20px auto;
+}
+
+.close {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.userFormCreateInput {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 0 0px 0;
+}
+
+.userFormCreateInput label {
+    margin-bottom: 5px;
+}
+
+.modal-content.deleteUser {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input,
+select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    transition: 0.17s;
+}
+
+#searchUserModal select {
+    padding: 9px;
+    margin-right: 5px;
+}
+
+input:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #3e3e3e;
+}
