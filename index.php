@@ -10,7 +10,14 @@ if (isset($_SESSION['ip_address']) && $_SESSION['ip_address'] == $_SERVER['REMOT
         $password = $_SESSION['password']; 
         
         require("./data/db.php");
-        global $pdo;
+
+        try {
+            $pdo = new PDO($dsn, $DBUSER, $DBPASS);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+            exit();
+        }
     
         // Подготовка и выполнение запроса
         $stmt = $pdo->prepare("SELECT password, ip_address FROM admin WHERE username = :username");

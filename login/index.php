@@ -23,12 +23,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = htmlspecialchars($_POST['username']);
     $password = $_POST['password'];
 
-    global $pdo;
+    try {
+        $pdo = new PDO($dsn, $DBUSER, $DBPASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+        exit();
+    }
 
     // Подготовка и выполнение запроса
     $stmt = $pdo->prepare("SELECT password, ip_address FROM admin WHERE username = :username");
     $stmt->execute(['username' => $username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    //var_dump($user);
     // Проверка пароля
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['username'] = $username;
